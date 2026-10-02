@@ -1,0 +1,35 @@
+:root{
+  --ink:#111418; --panel:#1A1E24; --manila:#EADBB8; --red:#E04A2B; --muted:#A39C8C; --line:#2A3038;
+  --mono:'IBM Plex Mono',ui-monospace,monospace; --serif:'Source Serif 4',Georgia,serif;
+  --display:'Big Shoulders Display','Arial Narrow',sans-serif;
+}
+*{box-sizing:border-box}
+html{background:var(--ink)}
+body{margin:0;background:var(--ink);color:var(--manila);font-family:var(--serif);font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--manila);text-decoration-color:var(--red);text-underline-offset:3px}
+a:hover{color:#fff}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+.top{padding-top:28px}
+.brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none;font-family:var(--mono);font-weight:600;font-size:14px;letter-spacing:.14em;text-transform:uppercase}
+.hero{padding:72px 0 56px;border-bottom:1px solid var(--line)}
+.kicker{font-family:var(--mono);font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin:0 0 18px}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(64px,16vw,132px);line-height:.88;margin:0;letter-spacing:.01em}
+h1 span{display:block;font-family:var(--mono);font-weight:600;font-size:clamp(22px,5.4vw,44px);letter-spacing:.42em;color:var(--red);margin-top:14px;line-height:1.1}
+.lede{max-width:34em;margin:28px 0 30px;color:#D9CFB8}
+.links{display:flex;flex-wrap:wrap;gap:12px}
+.links a{font-family:var(--mono);font-size:14px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:1px solid var(--line);padding:12px 18px;min-height:44px;display:inline-flex;align-items:center}
+.links a:hover{border-color:var(--red)}
+h2{font-family:var(--mono);font-size:13px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin:0 0 16px}
+.method,.contact{padding:44px 0;border-bottom:1px solid var(--line)}
+.method ol{margin:0;padding-left:1.3em}
+.method li{margin-bottom:10px}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-top:28px;padding-bottom:40px;font-family:var(--mono);font-size:13px;color:var(--muted)}
+.foot nav{display:flex;gap:20px}
+.foot a{color:var(--muted)}
+/* policy pages */
+.doc{padding-top:48px;padding-bottom:24px}
+.doc h1{font-size:clamp(44px,10vw,72px)}
+.doc .date{font-family:var(--mono);font-size:13px;color:var(--muted);letter-spacing:.08em;margin:14px 0 32px}
+.doc h2{margin-top:36px}
+.doc p,.doc li{color:#D9CFB8}
+.doc ul{padding-left:1.3em}
