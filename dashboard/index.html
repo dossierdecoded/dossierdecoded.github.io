@@ -112,6 +112,12 @@ td{font-variant-numeric:tabular-nums}
   </div>
 
   <div class="card">
+    <h2>Instagram carousels</h2>
+    <p class="sub">Document carousels posted to the feed (Mon / Wed / Fri at noon).</p>
+    <div class="tbl"><table id="carousels"></table></div>
+  </div>
+
+  <div class="card">
     <h2>All numbers</h2>
     <div class="tbl"><table id="table"></table></div>
     <p class="err" id="errors"></p>
@@ -216,6 +222,10 @@ function render(d, hist){
       <td>${fmt(v.yt?.views)}</td><td>${fmt(v.yt?.likes)}</td><td>${fmt(v.yt?.comments)}</td><td>${v.yt?.avg_view_pct != null ? Math.round(v.yt.avg_view_pct) + "%" : "–"}</td>
       <td>${fmt(v.ig?.views)}</td><td>${fmt(v.ig?.reach)}</td><td>${fmt(v.ig?.likes)}</td><td>${fmt(v.ig?.shares)}</td><td>${fmt(v.ig?.saved)}</td><td>${v.ig?.avg_watch_sec != null ? v.ig.avg_watch_sec + "s" : "–"}</td>
       <td>${v.yt?.url ? `<a href="${esc(v.yt.url)}" target="_blank" rel="noopener">YT</a>` : ""} ${v.ig?.url ? `<a href="${esc(v.ig.url)}" target="_blank" rel="noopener">IG</a>` : ""}</td></tr>`).join("") + "</tbody>";
+  const C = d.carousels || [];
+  $("#carousels").innerHTML = C.length ? `<thead><tr><th>#</th><th>Posted</th><th>Views</th><th>Reach</th><th>Likes</th><th>Comments</th><th>Shares</th><th>Saves</th><th>Link</th></tr></thead><tbody>` +
+    C.map(c => `<tr><td>${esc(c.case)}</td><td>${c.published ? new Date(c.published).toLocaleDateString() : "–"}</td><td>${fmt(c.views)}</td><td>${fmt(c.reach)}</td><td>${fmt(c.likes)}</td><td>${fmt(c.comments)}</td><td>${fmt(c.shares)}</td><td>${fmt(c.saved)}</td><td>${c.url ? `<a href="${esc(c.url)}" target="_blank" rel="noopener">IG</a>` : ""}</td></tr>`).join("") + "</tbody>"
+    : `<tbody><tr><td>No carousels yet.</td></tr></tbody>`;
   $("#errors").textContent = (d.errors || []).length ? "Collector warnings: " + d.errors.join(" · ") : "";
 }
 
